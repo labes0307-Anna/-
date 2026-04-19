@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-kuse-mode="document">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>山林溯源體驗營 ── 三天二夜兒童體驗營隊企劃書</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* ========================================
+       1. Base Styles
+       ======================================== */
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: #f5f5f0;
+      color: #202020;
+      font-size: 18px;
+    }
+    @media print {
+      body { background: white; }
+      .no-print { display: none !important; }
+      .page { box-shadow: none !important; margin: 0 !important; }
+    }
+
+    /* ========================================
+       2. Page Layout
+       ======================================== */
+    .page {
+      background: white;
+      max-width: 900px;
+      margin: 2rem auto;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* ========================================
+       3. Cover
+       ======================================== */
+    .cover {
+      background: linear-gradient(135deg, #1a4731 0%, #2d6a4f 40%, #52b788 100%);
+      padding: 4rem 3rem 3rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .cover-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.2rem;
+    }
+    .cover h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .cover h2 {
+      font-size: 1.1rem;
+      font-weight: 300;
+      opacity: 0.85;
+      margin-bottom: 2rem;
+    }
+    .cover-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .cover-meta-item { font-size: 0.88rem; opacity: 0.9; }
+    .cover-meta-item strong { display: block; font-size: 1rem; opacity: 1; margin-top: 0.2rem; }
+
+    /* ========================================
+       4. Section Headers
+       ======================================== */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.2rem;
+    }
+    .section-number {
+      width: 32px; height: 32px;
+      background: #2d6a4f;
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1a4731;
+    }
+    .section-divider {
+      height: 2px;
+      background: linear-gradient(90deg, #2d6a4f 0%, #b7e4c7 100%);
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ========================================
+       5. Day Cards
+       ======================================== */
+    .day-card {
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1.2rem;
+      border: 1px solid #e8f5e9;
+    }
+    .day-header {
+      padding: 0.85rem 1.2rem;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .day-1 .day-header { background: #1a4731; color: white; }
+    .day-2 .day-header { background: #2d6a4f; color: white; }
+    .day-3 .day-header { background: #52b788; color: white; }
+    .day-badge {
+      background: rgba(255,255,255,0.22);
+      border-radius: 6px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.78rem;
+    }
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 0;
+      border-bottom: 1px solid #f0f7f0;
+    }
+    .schedule-row:last-child { border-bottom: none; }
+    .schedule-time {
+      padding: 0.7rem 1rem;
+      background: #f8fdf9;
+      font-size: 0.82rem;
+      color: #2d6a4f;
+      font-weight: 600;
+      border-right: 2px solid #b7e4c7;
+      display: flex;
+      align-items: flex-start;
+      white-space: nowrap;
+    }
+    .schedule-activity {
+      padding: 0.7rem 1rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .activity-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+    .tag-pa { background: #fff3cd; color: #856404; }
+    .tag-outdoor { background: #d1e7dd; color: #0a3622; }
+    .tag-reflect { background: #e8d5f5; color: #5a1a8a; }
+    .tag-food { background: #fde8d8; color: #7c3510; }
+    .tag-eco { background: #cff4fc; color: #055160; }
+    .tag-art { background: #f8d7da; color: #842029; }
+
+    /* ========================================
+       6. Info Cards
+       ======================================== */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .info-card {
+      background: #f8fdf9;
+      border: 1px solid #b7e4c7;
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+    }
+    .info-card-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+    .info-card-label { font-size: 0.78rem; color: #6c757d; margin-bottom: 0.2rem; }
+    .info-card-value { font-size: 1rem; font-weight: 700; color: #1a4731; }
+
+    /* ========================================
+       7. Objective Cards
+       ======================================== */
+    .obj-card {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      background: #f8fdf9;
+      border-left: 4px solid #2d6a4f;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 0.8rem;
+    }
+    .obj-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .obj-title { font-weight: 700; color: #1a4731; margin-bottom: 0.2rem; }
+    .obj-desc { font-size: 0.88rem; color: #444; line-height: 1.6; }
+
+    /* ========================================
+       8. Budget Table
+       ======================================== */
+    .budget-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .budget-table th {
+      background: #1a4731;
+      color: white;
+      padding: 0.6rem 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    .budget-table td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid #e8f5e9;
+    }
+    .budget-table tr:nth-child(even) td { background: #f8fdf9; }
+    .budget-total td {
+      font-weight: 700;
+      color: #1a4731;
+      background: #e8f5e9 !important;
+      font-size: 0.95rem;
+    }
+
+    /* ========================================
+       9. Safety Section
+       ======================================== */
+    .safety-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .safety-item:last-child { border-bottom: none; }
+    .safety-dot {
+      width: 8px; height: 8px;
+      background: #2d6a4f;
+      border-radius: 50%;
+      margin-top: 0.45rem;
+      flex-shrink: 0;
+    }
+
+    /* ========================================
+       10. Footer
+       ======================================== */
+    .doc-footer {
+      background: #1a4731;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.8rem;
+    }
+    .kuse-branding {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; color: rgba(255,255,255,0.45);
+      text-decoration: none;
+    }
+    .kuse-branding:hover { color: rgba(255,255,255,0.75); }
+    .kuse-branding svg { height: 1.1em; width: auto; }
+  </style>
+</head>
+<body>
+
+<!-- Print Button -->
+<div class="no-print" style="text-align:center;padding:1.5rem 0 0;">
+  <button onclick="window.print()"
+    style="background:#2d6a4f;color:white;border:none;border-radius:8px;padding:0.6rem 1.6rem;font-size:0.95rem;cursor:pointer;font-family:inherit;">
+    🖨️ 列印 / 匯出 PDF
+  </button>
+</div>
+
+<div class="page">
+
+  <!-- ── COVER ── -->
+  <div class="cover">
+    <div class="cover-badge">🌿 兒童體驗營隊企劃書</div>
+    <h1>山林溯源<br>體驗營</h1>
+    <h2>讓孩子在自然中發現自己的力量與勇氣</h2>
+    <div class="cover-meta">
+      <div class="cover-meta-item">📅 日期<strong>2026年7月1日（三）至 7月3日（五）</strong></div>
+      <div class="cover-meta-item">👧 對象<strong>7–12 歲兒童（約8人）</strong></div>
+      <div class="cover-meta-item">🌲 天數<strong>三天二夜</strong></div>
+      <div class="cover-meta-item">🤝 服務對象<strong>天主教善牧基金會花蓮兒童之家兒少</strong></div>
+    </div>
+  </div>
+
+  <!-- ── BODY ── -->
+  <div style="padding: 2.5rem 2.5rem 2rem;">
+
+    <!-- 1. 活動緣起 -->
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <div class="section-title">活動緣起與理念</div>
+    </div>
+    <div class="section-divider"></div>
+    <p style="line-height:1.9;color:#333;margin-bottom:1rem;font-size:0.93rem;">
+      本次「山林溯源體驗營」由<strong>力勇冒險團隊</strong>主辦，以<strong>天主教善牧基金會花蓮兒童之家</strong>的兒少為服務對象。
+      花蓮兒童之家長期陪伴花蓮地區弱勢家庭的孩子，提供課後照顧、生活輔導與身心支持。
+      然而，許多孩子在成長過程中，受限於家庭資源，鮮少有機會走入山林、接觸大自然，
+      更缺乏系統性的冒險體驗與自主生活的練習機會。
+    </p>
+    <p style="line-height:1.9;color:#333;margin-bottom:1rem;font-size:0.93rem;">
+      研究顯示，戶外體驗教育對兒少的<strong>自我效能感、情緒調節能力與人際關係</strong>均有顯著正向影響。
+      特別是對於生活環境較為受限的弱勢兒少，一次完整的戶外冒險體驗，
+      往往能成為孩子人生中重要的轉捩點——讓他們第一次發現「原來我可以」。
+    </p>
+    <p style="line-height:1.9;color:#333;margin-bottom:2rem;font-size:0.93rem;">
+      本活動以「<strong>體驗教育（Experiential Education）</strong>」為核心理念，
+      依據 David Kolb 的體驗學習循環（具體體驗 → 反思觀察 → 抽象概念化 → 主動實踐），
+      設計三天完整課程，涵蓋繩索挑戰、溯溪探索、夜間生態、環境教育與木藝創作，
+      並在每日安排結構性反思，協助孩子將戶外體驗內化為真實的成長動力。
+    </p>
+
+    <!-- 體驗教育理念框 -->
+    <div style="background:linear-gradient(135deg,#f0faf5,#e8f5e9);border:1px solid #b7e4c7;border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:2rem;">
+      <div style="font-size:0.85rem;font-weight:700;color:#1a4731;margin-bottom:0.8rem;">📚 體驗教育學習循環（Kolb's Experiential Learning Cycle）</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;text-align:center;">
+        <div style="background:white;border-radius:8px;padding:0.7rem 0.5rem;">
+          <div style="font-size:1.2rem;">🎯</div>
+          <div style="font-size:0.75rem;font-weight:700;color:#1a4731;margin:0.3rem 0 0.2rem;">具體體驗</div>
+          <div style="font-size:0.7rem;color:#666;">親身參與繩索、溯溪、木藝等活動</div>
+        </div>
+        <div style="background:white;border-radius:8px;padding:0.7rem 0.5rem;">
+          <div style="font-size:1.2rem;">🔍</div>
+          <div style="font-size:0.75rem;font-weight:700;color:#1a4731;margin:0.3rem 0 0.2rem;">反思觀察</div>
+          <div style="font-size:0.7rem;color:#666;">每日反思圈，說出感受與想法</div>
+        </div>
+        <div style="background:white;border-radius:8px;padding:0.7rem 0.5rem;">
+          <div style="font-size:1.2rem;">💡</div>
+          <div style="font-size:0.75rem;font-weight:700;color:#1a4731;margin:0.3rem 0 0.2rem;">抽象概念化</div>
+          <div style="font-size:0.7rem;color:#666;">引導孩子找到體驗背後的意義</div>
+        </div>
+        <div style="background:white;border-radius:8px;padding:0.7rem 0.5rem;">
+          <div style="font-size:1.2rem;">🚀</div>
+          <div style="font-size:0.75rem;font-weight:700;color:#1a4731;margin:0.3rem 0 0.2rem;">主動實踐</div>
+          <div style="font-size:0.7rem;color:#666;">將學習帶回日常生活中應用</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 活動目標 -->
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <div class="section-title">活動目標</div>
+    </div>
+    <div class="section-divider"></div>
+    <div style="margin-bottom:2rem;">
+      <div class="obj-card">
+        <div class="obj-icon">🧗</div>
+        <div>
+          <div class="obj-title">自我挑戰與突破</div>
+          <div class="obj-desc">透過國立東華大學高空繩索場（台灣東部唯一）的 PA 課程，讓孩子在安全保護下正視內心恐懼、面對高度挑戰。從確保訓練到高空闖關，每一步都是孩子與自己的對話——「我害怕，但我還是做到了」，這份成就感將深刻留存在孩子心中。</div>
+        </div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-icon">🤝</div>
+        <div>
+          <div class="obj-title">團隊合作與相互信任</div>
+          <div class="obj-desc">繩索確保需要夥伴的守護，溯溪需要互相攙扶，野炊需要分工合作。三天中，孩子們在真實的情境中學習「把自己的安全交給別人」，建立超越教室的深厚信任感與夥伴情誼。</div>
+        </div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-icon">🌊</div>
+        <div>
+          <div class="obj-title">自然探索與環境責任</div>
+          <div class="obj-desc">溯溪認識花蓮水文生態、夜間觀察溪邊生物、鯉魚山步道認識植物與鳥類，並親身實踐無痕山林（LNT）七大原則。讓孩子不只是「走過」自然，而是真正「讀懂」自然，進而願意守護它。</div>
+        </div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-icon">🍳</div>
+        <div>
+          <div class="obj-title">生活自理與自主決策</div>
+          <div class="obj-desc">從第一天晚上討論食材、自主採購，到第二天早上自己煮早餐、溯溪途中野炊午餐，孩子全程負責「吃什麼、怎麼煮、怎麼分工」。這不只是生活技能的練習，更是培養自我負責與主動解決問題的能力。</div>
+        </div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-icon">💬</div>
+        <div>
+          <div class="obj-title">反思整合與情緒表達</div>
+          <div class="obj-desc">每日活動結束後安排結構性反思圈（Reflection Circle），引導孩子用語言表達當天的感受、困難與收穫。透過說出來，孩子學會辨識自己的情緒，並將體驗轉化為真實的內在成長。</div>
+        </div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-icon">🪵</div>
+        <div>
+          <div class="obj-title">創作體驗與成就留存</div>
+          <div class="obj-desc">在阿迪克漂流木工作室，孩子親手打磨花蓮海岸漂流木，製作屬於自己的紀念品並刻上名字。這件作品不只是紀念品，更是三天勇氣與成長的具體象徵，讓孩子帶著「我做到了」的記憶回家。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 基本資訊 -->
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <div class="section-title">活動基本資訊</div>
+    </div>
+    <div class="section-divider"></div>
+    <div class="info-grid" style="margin-bottom:2rem;">
+      <div class="info-card">
+        <div class="info-card-icon">📅</div>
+        <div class="info-card-label">活動日期</div>
+        <div class="info-card-value">2026年7月1日–3日</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">👧</div>
+        <div class="info-card-label">服務對象</div>
+        <div class="info-card-value">天主教善牧基金會花蓮兒童之家兒少</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🔢</div>
+        <div class="info-card-label">預計人數</div>
+        <div class="info-card-value">約 8 位學員</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🌲</div>
+        <div class="info-card-label">活動天數</div>
+        <div class="info-card-value">三天二夜</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">📍</div>
+        <div class="info-card-label">活動地點</div>
+        <div class="info-card-value">花蓮縣境內</div>
+        <div style="font-size:0.72rem;color:#2d6a4f;margin-top:0.3rem;">🏨 住宿：繆斯‧法朵民宿</div>
+      </div>
+    </div>
+
+    <!-- 4. 三天行程表 -->
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <div class="section-title">活動行程規劃</div>
+    </div>
+    <div class="section-divider"></div>
+
+    <!-- Day 1 -->
+    <div class="day-card day-1">
+      <div class="day-header">
+        <span>第一天</span>
+        <span class="day-badge">7月1日（三）</span>
+        <span style="margin-left:auto;font-size:0.85rem;font-weight:400;opacity:0.85;">繩索挑戰日</span>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">08:00–09:00</div>
+        <div class="schedule-activity">報到（機構接送至活動地點）</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">08:30–09:30</div>
+        <div class="schedule-activity">
+          相見歡 ／ 營隊規範說明
+          <span class="activity-tag tag-reflect">破冰</span>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">09:30–12:00</div>
+        <div class="schedule-activity">
+          國立東華大學高空繩索場 ── 低空體驗與確保訓練
+          <span class="activity-tag tag-pa">PA</span>
+          <br>
+          <span style="font-size:0.8rem;color:#666;">▸ 安全裝備介紹（頭盔、半身吊帶、確保器）▸ 繩結基礎練習 ▸ 低空繩索闖關 ▸ 確保技術教學（需花費大量時間，安全第一）</span>
+          <br>
+          <span style="font-size:0.78rem;color:#2d6a4f;font-weight:600;">★ 台灣東部唯一高空繩索探索體驗場，設施包含大飛鼠、高空獨木橋、三索橋等共9項</span>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">12:00–13:00</div>
+        <div class="schedule-activity">午餐時間 <span class="activity-tag tag-food">餐食</span></div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">13:00–17:00</div>
+        <div class="schedule-activity">
+          高空繩索挑戰 ── 自我突破時刻
+          <span class="activity-tag tag-pa">PA</span>
+          <br>
+          <span style="font-size:0.8rem;color:#666;">▸ 雙索 ▸ 高空獨木橋 ▸ 三索 ▸ 老鷹之柱 ▸ 個人選擇挑戰項目，非強迫，尊重每位孩子的步調</span>
+          <br>
+          <span style="font-size:0.78rem;color:#888;">※ 並非每位孩子都能完成所有項目，重點在於勇於嘗試、突破自我心理限制</span>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">17:30–21:00</div>
+        <div class="schedule-activity">
+          晚餐 ／ 隔日食材討論與採購 ／ 盥洗 ／ 反思分享
+          <span class="activity-tag tag-food">餐食</span>
+          <span class="activity-tag tag-reflect">反思</span>
+          <br>
+          <span style="font-size:0.8rem;color:#666;">▸ 晚餐 ▸ 小組討論隔日溯溪所需食材 ▸ 前往採購（孩子自主決定要吃什麼、怎麼準備）▸ 盥洗 ▸ 當日心得反思分享</span>
+          <br>
+          <span style="font-size:0.78rem;color:#2d6a4f;font-weight:600;">🏨 夜宿：繆斯‧法朵民宿｜花蓮市林政街88巷31號（遠東百貨旁）</span>
+          <br>
+          <span style="font-size:0.75rem;color:#888;">歐式古典奢華風格，16間精緻客房，乾濕分離衛浴，大金冷暖空調，電梯設備，讓孩子在充滿藝術氛圍的空間中好好休息</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day-card day-2">
+      <div class="day-header">
+        <span>第二天</span>
+        <span class="day-badge">7月2日（四）</span>
+        <span style="margin-left:auto;font-size:0.85rem;font-weight:400;opacity:0.85;">溯溪探索日</span>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">06:00–08:30</div>
+        <div class="schedule-activity">
+          起床盥洗 ／ 自己準備早餐
+          <span class="activity-tag tag-food">自煮</span>
+          <br>
+          <span style="font-size:0.8rem;color:#666;">▸ 孩子依前晚採購的食材，自己動手準備並烹煮早餐 ▸ 培養生活自理與獨立能力</span>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">08:30–17:30</div>
+        <div class="schedule-activity">
+          戶外溯溪體驗（全日）── 清昌溪水晶谷
+          <span class="activity-tag tag-outdoor">戶外</span>
+          <br>
+          <span style="font-size:0.8rem;color:#666;">
+
+            ▸ 裝備器材講解與穿戴練習（溯溪鞋、頭盔、救生衣）<br>
+            ▸ 溪邊水文認識與生態觀察<br>
+            ▸ 水域自救技巧課程<br>
+            ▸ 溯溪途中自己煮午餐（野炊，使用前晚採購食材）
+          </span>
+          <br>
+          <span style="font-size:0.78rem;color:#2d6a4f;font-weight:600;">★ 從採購→準備→烹煮→清洗，全程由孩子自主負責，深化生活自理能力</span>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">18:30–21:00</div>
+        <div class="schedule-activity">
+          夜間生態探索
+          <span class="activity-tag tag-eco">生態</span>
+          <span class="activity-tag tag-reflect">反思</span>
+          <br>
+          <span style="font-size:0.8rem;color:#666;">▸ 晚餐 ▸ 夜間抓蝦體驗 ▸ 盥洗 ▸ 當日反思及反饋</span>
+          <br>
+          <span style="font-size:0.78rem;color:#2d6a4f;font-weight:600;">🏨 夜宿：繆斯‧法朵民宿｜花蓮市林政街88巷31號</span>
+          <br>
+          <span style="font-size:0.75rem;color:#888;">彷彿置身歐洲貴族世家的精緻空間，木質壁飾、濃郁壁紙與奢華飾品，讓孩子在充實的一天後得到完整的休息</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="day-card day-3">
+      <div class="day-header">
+        <span>第三天</span>
+        <span class="day-badge">7月3日（五）</span>
+        <span style="margin-left:auto;font-size:0.85rem;font-weight:400;opacity:0.85;">山林巡禮日</span>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">06:00–08:30</div>
+        <div class="schedule-activity">
+          起床盥洗 ／ 用餐 ／ 行李整理
+          <span class="activity-tag tag-food">餐食</span>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">08:30–12:00</div>
+        <div class="schedule-activity">
+          鯉魚潭 ／ 鯉魚山步道巡禮 ／ 環境教育 ／ 無痕山林（LNT）
+          <span class="activity-tag tag-outdoor">戶外</span>
+          <span class="activity-tag tag-eco">生態</span>
+          <br>
+          <span style="font-size:0.8rem;color:#666;">
+            ▸ 鯉魚潭為花蓮境內最大內陸湖泊，「澄潭躍鯉」名列花蓮八景之一<br>
+            ▸ 鯉魚山步道群共6條，全長11.2公里，海拔130–601公尺，台灣小百岳之一<br>
+            ▸ 山頂觀景台（海拔601公尺）可遠眺太平洋、奇萊山與花東縱谷，視野絕佳<br>
+            ▸ 步道沿線生態豐富：五色鳥、黑枕藍鶲、大冠鷲、繡眼畫眉等鳥類<br>
+            ▸ 低海拔闊葉林林相，高大樹蕨、藤蔓攀樹，引導孩子觀察植物特徵與生長方式<br>
+            ▸ 環境守護實際行動：沿途撿拾垃圾、記錄生態觀察
+          </span>
+          <br>
+          <span style="font-size:0.8rem;color:#555;font-weight:600;margin-top:0.3rem;display:block;">🌿 無痕山林（LNT）七大原則教學：</span>
+          <span style="font-size:0.78rem;color:#666;line-height:1.9;">
+            ① 規劃準備是第一 ── 出發前了解路線、天氣、裝備<br>
+            ② 行進路線須留意 ── 只走既有步道，不踩踏植被<br>
+            ③ 垃圾帶走不留下 ── 所有垃圾、廚餘全部帶回<br>
+            ④ 保持環境原風貌 ── 不採摘花草、石頭，不塗鴉<br>
+            ⑤ 用火影響減最低 ── 使用爐具，離開前確認火熄滅<br>
+            ⑥ 尊重野生動植物 ── 保持距離觀賞，絕不餵食追逐<br>
+            ⑦ 尊重他人守禮儀 ── 禮讓上坡者，保持安靜不喧嘩
+          </span>
+          <br>
+          <span style="font-size:0.78rem;color:#2d6a4f;font-weight:600;">★ 低海拔闊葉林步道，適合兒童體力，透過親身實踐學習環境責任感</span>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">12:00–13:00</div>
+        <div class="schedule-activity">午餐時間 <span class="activity-tag tag-food">餐食</span></div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">13:00–17:00</div>
+        <div class="schedule-activity">
+          阿迪克木藝教室 ── 紀念品製作
+          <span class="activity-tag tag-art">木藝</span>
+          <span class="activity-tag tag-reflect">結營</span>
+          <br>
+          <span style="font-size:0.8rem;color:#666;">
+            ▸ 地點：花蓮縣吉安鄉 阿迪克漂流木藝術創作工作室<br>
+            ▸ 以花蓮海岸線的天然「漂流木」為素材，每件作品獨一無二<br>
+            ▸ 課程流程：選取木料 → 器具使用教學（電動打磨機 ＋ 砂紙）→ 安全操作說明 → 親手打磨創作<br>
+            ▸ 可在完成的作品上電燒刻字（如自己的名字、日期），留下專屬紀念<br>
+            ▸ 師傅全程在旁指導，培養孩子的耐心、專注力與手作成就感<br>
+            ▸ 作品帶回家，是這次營隊最獨特的紀念品
+          </span>
+          <br>
+          <span style="font-size:0.78rem;color:#2d6a4f;font-weight:600;">★「阿迪克」源自阿美族語「蚯蚓」，象徵在這片土地上生根成長，呼應本次營隊的自然教育精神</span>
+          <br>
+          <span style="font-size:0.78rem;color:#888;">※ 課程約1–2小時，含工具材料費用，建議穿長袖長褲</span>
+          <br><br>
+          <span style="font-size:0.8rem;color:#555;font-weight:600;">🎉 結營典禮：</span>
+          <span style="font-size:0.78rem;color:#666;">心得分享 ▸ 每位孩子展示木藝作品 ▸ 三天成長回顧 ▸ 賦歸</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. 課程架構 -->
+    <div class="section-header" style="margin-top:2rem;">
+      <div class="section-number">5</div>
+      <div class="section-title">課程架構與學習主軸</div>
+    </div>
+    <div class="section-divider"></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:2rem;">
+      <div style="background:#fff8e1;border-radius:10px;padding:1rem;border-top:4px solid #f9a825;">
+        <div style="font-size:1.3rem;margin-bottom:0.4rem;">🧗</div>
+        <div style="font-weight:700;color:#e65100;margin-bottom:0.4rem;">挑戰課程</div>
+        <div style="font-size:0.83rem;color:#555;line-height:1.6;">PA 低空 / 高空繩索、確保技術、個人突破</div>
+      </div>
+      <div style="background:#e8f5e9;border-radius:10px;padding:1rem;border-top:4px solid #2e7d32;">
+        <div style="font-size:1.3rem;margin-bottom:0.4rem;">🌊</div>
+        <div style="font-weight:700;color:#1b5e20;margin-bottom:0.4rem;">自然體驗</div>
+        <div style="font-size:0.83rem;color:#555;line-height:1.6;">溯溪探索、水文生態、夜間生物觀察</div>
+      </div>
+      <div style="background:#e3f2fd;border-radius:10px;padding:1rem;border-top:4px solid #1565c0;">
+        <div style="font-size:1.3rem;margin-bottom:0.4rem;">🌿</div>
+        <div style="font-weight:700;color:#0d47a1;margin-bottom:0.4rem;">環境教育</div>
+        <div style="font-size:0.83rem;color:#555;line-height:1.6;">無痕山林（LNT）、步道生態、環境守護</div>
+      </div>
+      <div style="background:#fce4ec;border-radius:10px;padding:1rem;border-top:4px solid #c62828;">
+        <div style="font-size:1.3rem;margin-bottom:0.4rem;">🪵</div>
+        <div style="font-weight:700;color:#b71c1c;margin-bottom:0.4rem;">創作體驗</div>
+        <div style="font-size:0.83rem;color:#555;line-height:1.6;">木藝紀念品製作、自我表達、成果分享</div>
+      </div>
+      <div style="background:#f3e5f5;border-radius:10px;padding:1rem;border-top:4px solid #6a1b9a;">
+        <div style="font-size:1.3rem;margin-bottom:0.4rem;">💬</div>
+        <div style="font-weight:700;color:#4a148c;margin-bottom:0.4rem;">反思整合</div>
+        <div style="font-size:0.83rem;color:#555;line-height:1.6;">每日反思圈、心得分享、情緒表達引導</div>
+      </div>
+      <div style="background:#fff3e0;border-radius:10px;padding:1rem;border-top:4px solid #e65100;">
+        <div style="font-size:1.3rem;margin-bottom:0.4rem;">🍳</div>
+        <div style="font-weight:700;color:#bf360c;margin-bottom:0.4rem;">生活自理</div>
+        <div style="font-size:0.83rem;color:#555;line-height:1.6;">早餐製作、野炊午餐、食材採購體驗</div>
+      </div>
+    </div>
+
+    <!-- 6. 安全規劃 -->
+    <div class="section-header">
+      <div class="section-number">6</div>
+      <div class="section-title">安全規劃與風險管理</div>
+    </div>
+    <div class="section-divider"></div>
+    <div style="margin-bottom:2rem;">
+      <div class="safety-item">
+        <div class="safety-dot"></div>
+        <div style="font-size:0.9rem;line-height:1.6;"><strong>師生比例：</strong>全程維持至少 1:4 的帶領人員與學員比例，確保每位孩子獲得適切照顧。</div>
+      </div>
+      <div class="safety-item">
+        <div class="safety-dot"></div>
+        <div style="font-size:0.9rem;line-height:1.6;"><strong>繩索課程安全：</strong>PA 課程由具認證資格之帶領者執行，全程配戴安全頭盔與安全吊帶，並進行活動前安全簡報。</div>
+      </div>
+      <div class="safety-item">
+        <div class="safety-dot"></div>
+        <div style="font-size:0.9rem;line-height:1.6;"><strong>溯溪水域安全：</strong>出發前進行水域安全教育，全程穿著救生衣，並由熟悉當地水域之帶領者陪同，視天候與水位彈性調整行程。</div>
+      </div>
+      <div class="safety-item">
+        <div class="safety-dot"></div>
+        <div style="font-size:0.9rem;line-height:1.6;"><strong>急救準備：</strong>帶領人員持有急救證照，全程備有急救包，並掌握最近醫療院所位置與緊急聯絡方式。</div>
+      </div>
+      <div class="safety-item">
+        <div class="safety-dot"></div>
+        <div style="font-size:0.9rem;line-height:1.6;"><strong>家長同意書：</strong>活動前取得家長／監護人書面同意，並收集孩子之健康狀況、過敏史、緊急聯絡人等資訊。</div>
+      </div>
+      <div class="safety-item">
+        <div class="safety-dot"></div>
+        <div style="font-size:0.9rem;line-height:1.6;"><strong>天候應變：</strong>備有雨天備案行程，遇極端天候或安全疑慮時，帶領者有權調整或取消相關活動。</div>
+      </div>
+      <div class="safety-item">
+        <div class="safety-dot"></div>
+        <div style="font-size:0.9rem;line-height:1.6;"><strong>保險：</strong>參與孩子均投保活動意外險，保障期間涵蓋整個活動期間。</div>
+      </div>
+    </div>
+
+    <!-- 7. 費用說明 -->
+    <div class="section-header">
+      <div class="section-number">7</div>
+      <div class="section-title">費用說明</div>
+    </div>
+    <div class="section-divider"></div>
+    <div style="background:linear-gradient(135deg,#f0faf5,#e8f5e9);border:1px solid #b7e4c7;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.2rem;text-align:center;">
+      <div style="font-size:0.88rem;color:#555;margin-bottom:0.4rem;">每位學員費用</div>
+      <div style="font-size:2.4rem;font-weight:700;color:#1a4731;letter-spacing:0.02em;">15,000 <span style="font-size:1.2rem;">元／人</span></div>
+    </div>
+    <div style="background:#f8fdf9;border:1px solid #b7e4c7;border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:2rem;">
+      <div style="font-weight:700;color:#1a4731;margin-bottom:0.8rem;font-size:0.95rem;">費用包含：</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 1.5rem;">
+        <div style="font-size:0.9rem;color:#333;line-height:1.8;">🧗 PA 繩索課程（低空＋高空設施，含安全器材）</div>
+        <div style="font-size:0.9rem;color:#333;line-height:1.8;">🌊 溯溪活動（裝備租借＋嚮導費）</div>
+        <div style="font-size:0.9rem;color:#333;line-height:1.8;">🍳 三天餐食（含食材採購、野炊器材）</div>
+        <div style="font-size:0.9rem;color:#333;line-height:1.8;">🚐 全程交通接送</div>
+        <div style="font-size:0.9rem;color:#333;line-height:1.8;">🪵 木藝紀念品製作課程</div>
+        <div style="font-size:0.9rem;color:#333;line-height:1.8;">🏨 二晚住宿（繆斯‧法朵民宿）</div>
+        <div style="font-size:0.9rem;color:#333;line-height:1.8;">👨‍🏫 專業帶領人員費用</div>
+        <div style="font-size:0.9rem;color:#333;line-height:1.8;">🩺 活動意外險</div>
+        <div style="font-size:0.9rem;color:#333;line-height:1.8;">📦 行政雜支</div>
+      </div>
+    </div>
+
+    <!-- 8. 帶領團隊 -->
+    <div class="section-header">
+      <div class="section-number">8</div>
+      <div class="section-title">帶領團隊說明</div>
+    </div>
+    <div class="section-divider"></div>
+    <div style="background:#f8fdf9;border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:2rem;border:1px solid #b7e4c7;">
+      <p style="font-size:0.9rem;line-height:1.8;color:#333;">
+        本次活動由具備戶外體驗教育實務經驗之私人服務團隊規劃執行。團隊成員具備以下資格與經驗：
+      </p>
+      <ul style="font-size:0.88rem;line-height:2;color:#333;padding-left:1.2rem;list-style:disc;">
+        <li>PA 繩索課程帶領經驗（低空 / 高空）</li>
+        <li>溯溪戶外活動帶領資歷</li>
+        <li>急救（CPR + 急救）認證</li>
+        <li>兒少服務與陪伴實務經驗</li>
+        <li>無痕山林（LNT）教育推廣</li>
+      </ul>
+
+    </div>
+
+    <!-- 9. 預期成效 -->
+    <div class="section-header">
+      <div class="section-number">9</div>
+      <div class="section-title">預期成效</div>
+    </div>
+    <div class="section-divider"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:2rem;">
+      <div style="display:flex;gap:0.6rem;align-items:flex-start;">
+        <span style="color:#2d6a4f;font-size:1.1rem;margin-top:0.1rem;">✅</span>
+        <span style="font-size:0.88rem;line-height:1.6;">孩子能在安全環境中完成繩索挑戰，建立自信心</span>
+      </div>
+      <div style="display:flex;gap:0.6rem;align-items:flex-start;">
+        <span style="color:#2d6a4f;font-size:1.1rem;margin-top:0.1rem;">✅</span>
+        <span style="font-size:0.88rem;line-height:1.6;">透過溯溪體驗認識花蓮在地水域生態</span>
+      </div>
+      <div style="display:flex;gap:0.6rem;align-items:flex-start;">
+        <span style="color:#2d6a4f;font-size:1.1rem;margin-top:0.1rem;">✅</span>
+        <span style="font-size:0.88rem;line-height:1.6;">學習基本水域自救與野外求生常識</span>
+      </div>
+      <div style="display:flex;gap:0.6rem;align-items:flex-start;">
+        <span style="color:#2d6a4f;font-size:1.1rem;margin-top:0.1rem;">✅</span>
+        <span style="font-size:0.88rem;line-height:1.6;">培養對自然環境的尊重與無痕山林觀念</span>
+      </div>
+      <div style="display:flex;gap:0.6rem;align-items:flex-start;">
+        <span style="color:#2d6a4f;font-size:1.1rem;margin-top:0.1rem;">✅</span>
+        <span style="font-size:0.88rem;line-height:1.6;">帶回親手製作的木藝紀念品，留下美好回憶</span>
+      </div>
+      <div style="display:flex;gap:0.6rem;align-items:flex-start;">
+        <span style="color:#2d6a4f;font-size:1.1rem;margin-top:0.1rem;">✅</span>
+        <span style="font-size:0.88rem;line-height:1.6;">透過每日反思，孩子能表達感受、整合成長經驗</span>
+      </div>
+    </div>
+
+    <!-- 10. 聯絡資訊 -->
+    <div class="section-header">
+      <div class="section-number">10</div>
+      <div class="section-title">聯絡資訊</div>
+    </div>
+    <div class="section-divider"></div>
+    <div style="background:#f8fdf9;border-radius:10px;padding:1.2rem 1.5rem;border:1px solid #b7e4c7;font-size:0.9rem;line-height:2;">
+      <div>🏢 <strong>主辦單位：</strong>力勇冒險團隊</div>
+      <div>👤 <strong>聯絡人：</strong>林國偉</div>
+      <div>📞 <strong>聯絡電話：</strong>0910-825-534</div>
+      <div>📧 <strong>電子信箱：</strong>666liyo@gmail.com</div>
+    </div>
+
+  </div><!-- end body padding -->
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <div>山林溯源體驗營 ── 三天二夜兒童體驗營隊企劃書 ｜ 2026年</div>
+    <div style="margin-top:0.4rem;">
+      <a class="kuse-branding" href="https://kuse.ai" target="_blank" rel="noopener noreferrer">
+        made with
+        <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+          <text x="0" y="34" font-size="36" font-family="Arial" font-weight="bold">kuse</text>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+</div><!-- end page -->
+
+<script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+</body>
+</html>

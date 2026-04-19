@@ -1,0 +1,492 @@
+<!DOCTYPE html><html lang="zh-TW" data-kuse-mode="interactive"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>山林溯源體驗營 ── 三天二夜兒童冒險體驗</title>
+  <meta name="description" content="花蓮善牧中心兒少專屬體驗營，繩索挑戰、溯溪探索、夜間生態、木藝創作，讓孩子在山林中發現自己的力量與勇氣！">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Noto Sans TC', sans-serif; font-size: 18px; }
+
+    /* Hero */
+    .hero-bg {
+      background: linear-gradient(160deg, #0d2818 0%, #1a4731 35%, #2d6a4f 65%, #40916c 100%);
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .floating-leaf {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.12;
+      animation: floatLeaf 8s ease-in-out infinite;
+    }
+    @keyframes floatLeaf {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(15deg); }
+    }
+
+    /* Section */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(82,183,136,0.15);
+      border: 1px solid rgba(82,183,136,0.4);
+      color: #74c69d;
+      border-radius: 999px;
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+
+    /* Activity Cards */
+    .activity-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .activity-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.14);
+    }
+    .activity-card-header {
+      padding: 1.5rem 1.5rem 1rem;
+    }
+    .activity-card-body {
+      padding: 0 1.5rem 1.5rem;
+    }
+    .activity-emoji { font-size: 2.2rem; margin-bottom: 0.6rem; }
+    .activity-day {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    /* Timeline */
+    .timeline-item {
+      display: flex;
+      gap: 1.2rem;
+      padding-bottom: 1.5rem;
+      position: relative;
+    }
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px; top: 40px;
+      width: 2px;
+      bottom: 0;
+      background: linear-gradient(to bottom, #2d6a4f, #b7e4c7);
+    }
+    .timeline-dot {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    /* Stats */
+    .stat-card {
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    /* CTA */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #2d6a4f;
+      color: white;
+      border-radius: 12px;
+      padding: 0.9rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .cta-btn:hover { background: #1a4731; transform: translateY(-2px); }
+    .cta-btn-outline {
+      background: transparent;
+      border: 2px solid #2d6a4f;
+      color: #2d6a4f;
+    }
+    .cta-btn-outline:hover { background: #2d6a4f; color: white; }
+
+    /* Kuse branding */
+    .kuse-branding {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.8rem; color: #9C9C9C; text-decoration: none;
+      transition: color 0.2s;
+    }
+    .kuse-branding:hover { color: #202020; }
+    .kuse-branding svg { height: 1.1em; width: auto; }
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body class="text-[#202020] bg-white antialiased">
+
+  <!-- ── HERO ── -->
+  <section class="hero-bg flex flex-col items-center justify-center text-center px-4 py-20 md:py-28">
+    <!-- Floating decorations -->
+    <span class="floating-leaf" style="top:10%;left:8%;animation-delay:0s;">🌿</span>
+    <span class="floating-leaf" style="top:20%;right:10%;animation-delay:2s;">🍃</span>
+    <span class="floating-leaf" style="bottom:15%;left:15%;animation-delay:4s;">🌱</span>
+    <span class="floating-leaf" style="bottom:25%;right:8%;animation-delay:1s;">🍀</span>
+
+    <div class="relative z-10 max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white/80 rounded-full px-4 py-1.5 text-sm font-medium mb-6">
+        🌲 2026.07.01–07.03 · 花蓮 · 三天二夜
+      </div>
+      <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-4">
+        山林溯源<br>
+        <span style="color:#74c69d;">體驗營</span>
+      </h1>
+      <p class="text-white/75 text-lg md:text-xl font-light mb-3 leading-relaxed">
+        讓孩子在自然中發現自己的<strong class="text-white font-semibold">力量</strong>與<strong class="text-white font-semibold">勇氣</strong>
+      </p>
+      <p class="text-white/70 font-light mb-4 leading-relaxed max-w-2xl mx-auto" style="font-size:0.85rem;">
+        「力」是力量，「勇」是勇氣。<br>
+        每個孩子內心都藏著等待被發現的力量與勇氣，而冒險，就是那把鑰匙。<br>
+        這一次，我們帶孩子走進山林與溪流，用真實的挑戰，讓他們第一次感受到突破自己的滋味。
+      </p>
+      <p class="text-white/55 text-sm mb-10">
+        繩索挑戰 · 溯溪探索 · 夜間生態 · 木藝創作
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="#schedule" class="cta-btn" style="background:#52b788;">
+          📅 查看行程
+        </a>
+        <a href="#register" class="cta-btn cta-btn-outline" style="border-color:rgba(255,255,255,0.4);color:white;">
+          ✏️ 報名參加
+        </a>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="relative z-10 mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl w-full">
+      <div class="bg-white/10 backdrop-blur rounded-2xl p-4 text-white text-center">
+        <div class="text-3xl font-black">3</div>
+        <div class="text-white/65 text-xs mt-1">天數</div>
+      </div>
+      <div class="bg-white/10 backdrop-blur rounded-2xl p-4 text-white text-center">
+        <div class="text-3xl font-black">8</div>
+        <div class="text-white/65 text-xs mt-1">名學員</div>
+      </div>
+      <div class="bg-white/10 backdrop-blur rounded-2xl p-4 text-white text-center">
+        <div class="text-3xl font-black">6</div>
+        <div class="text-white/65 text-xs mt-1">大主題課程</div>
+      </div>
+      <div class="bg-white/10 backdrop-blur rounded-2xl p-4 text-white text-center">
+        <div class="text-3xl font-black">7–12</div>
+        <div class="text-white/65 text-xs mt-1">歲適合</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="py-20 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <div class="section-label mx-auto">🌱 關於這次營隊</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#1a4731] mb-4">這個營隊，有什麼不一樣？</h2>
+        <p class="text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          許多孩子從未爬過山、踏進溪流，也從未體驗過「自己煮飯給自己吃」的感覺。<br>
+          這次，力勇冒險團隊想給善牧中心的孩子一個真正不一樣的三天——<br>
+          <strong class="text-[#1a4731]">不是旅遊，而是一場讓孩子發現自己的冒險。</strong>
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="text-center p-6 rounded-2xl bg-[#f8fdf9] border border-[#b7e4c7]">
+          <div class="text-4xl mb-3">🧗</div>
+          <h3 class="font-bold text-[#1a4731] mb-2">「我害怕，但我做到了」</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">在台灣東部唯一的高空繩索場，孩子第一次站在高處，第一次把安全交給夥伴，第一次感受到突破自己的滋味。</p>
+        </div>
+        <div class="text-center p-6 rounded-2xl bg-[#f8fdf9] border border-[#b7e4c7]">
+          <div class="text-4xl mb-3">🍳</div>
+          <h3 class="font-bold text-[#1a4731] mb-2">「這是我自己煮的！」</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">自己討論菜單、自己採購食材、自己在溪邊生火煮飯。從來沒有人說孩子做不到，只是沒有給他們機會試試看。</p>
+        </div>
+        <div class="text-center p-6 rounded-2xl bg-[#f8fdf9] border border-[#b7e4c7]">
+          <div class="text-4xl mb-3">🌊</div>
+          <h3 class="font-bold text-[#1a4731] mb-2">「原來花蓮這麼美！」</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">溯溪、夜間抓蝦、鯉魚潭步道、漂流木創作——住在花蓮的孩子，這次真正走進了這片土地。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ACTIVITIES ── -->
+  <section class="py-20 px-4 bg-[#f5f5f0]">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <div class="section-label mx-auto">🎯 精彩活動</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#1a4731] mb-4">每一天都是全新探險</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Card 1 -->
+        <div class="activity-card">
+          <div class="activity-card-header" style="background:linear-gradient(135deg,#1a4731,#2d6a4f);">
+            <div class="activity-emoji">🧗</div>
+            <div class="activity-day text-[#74c69d]">Day 1 · 挑戰</div>
+            <h3 class="text-white font-bold text-lg">繩索體驗</h3>
+          </div>
+          <div class="activity-card-body pt-4">
+            <ul class="text-sm text-gray-600 space-y-1.5">
+              <li class="flex gap-2"><span>▸</span><span>國立東華大學高空繩索場</span></li>
+              <li class="flex gap-2"><span>▸</span><span>台灣東部唯一！9項高空設施</span></li>
+              <li class="flex gap-2"><span>▸</span><span>大飛鼠・高空獨木橋・巨人梯</span></li>
+              <li class="flex gap-2"><span>▸</span><span>晚上自主採購隔日食材 🛒</span></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="activity-card">
+          <div class="activity-card-header" style="background:linear-gradient(135deg,#1565c0,#1976d2);">
+            <div class="activity-emoji">🌊</div>
+            <div class="activity-day text-[#90caf9]">Day 2 · 上午</div>
+            <h3 class="text-white font-bold text-lg">溯溪探索</h3>
+          </div>
+          <div class="activity-card-body pt-4">
+            <ul class="text-sm text-gray-600 space-y-1.5">
+              <li class="flex gap-2"><span>▸</span><span>清昌溪水晶谷溯溪體驗 🥾</span></li>
+              <li class="flex gap-2"><span>▸</span><span>水文生態認識 ＋ 自救課程</span></li>
+              <li class="flex gap-2"><span>▸</span><span>溪中自己煮午餐（野炊）🍳</span></li>
+              <li class="flex gap-2"><span>▸</span><span>從採購到烹煮全自主負責</span></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="activity-card">
+          <div class="activity-card-header" style="background:linear-gradient(135deg,#1a237e,#283593);">
+            <div class="activity-emoji">🦗</div>
+            <div class="activity-day text-[#9fa8da]">Day 2 · 夜間</div>
+            <h3 class="text-white font-bold text-lg">夜間生態</h3>
+          </div>
+          <div class="activity-card-body pt-4">
+            <ul class="text-sm text-gray-600 space-y-1.5">
+              <li class="flex gap-2"><span>▸</span><span>夜間生物觀察</span></li>
+              <li class="flex gap-2"><span>▸</span><span>溪邊抓蝦體驗</span></li>
+              <li class="flex gap-2"><span>▸</span><span>夜間感官探索</span></li>
+              <li class="flex gap-2"><span>▸</span><span>每日反思分享</span></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="activity-card">
+          <div class="activity-card-header" style="background:linear-gradient(135deg,#4e342e,#6d4c41);">
+            <div class="activity-emoji">🪵</div>
+            <div class="activity-day text-[#ffcc80]">Day 3 · 創作</div>
+            <h3 class="text-white font-bold text-lg">木藝創作</h3>
+          </div>
+          <div class="activity-card-body pt-4">
+            <ul class="text-sm text-gray-600 space-y-1.5">
+              <li class="flex gap-2"><span>▸</span><span>鯉魚潭 ── 花蓮八景之一 🏞️</span></li>
+              <li class="flex gap-2"><span>▸</span><span>鯉魚山步道（台灣小百岳）</span></li>
+              <li class="flex gap-2"><span>▸</span><span>無痕山林 LNT 教育</span></li>
+              <li class="flex gap-2"><span>▸</span><span>阿迪克木藝 ── 紀念品帶回家 🎁</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SCHEDULE ── -->
+  <section id="schedule" class="py-20 px-4 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <div class="section-label mx-auto">📅 行程表</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#1a4731] mb-4">三天完整行程</h2>
+      </div>
+
+      <!-- Day 1 -->
+      <div class="mb-10">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-full bg-[#1a4731] text-white flex items-center justify-center font-bold text-sm">D1</div>
+          <div>
+            <div class="font-bold text-[#1a4731]">第一天 · 繩索挑戰日</div>
+            <div class="text-xs text-gray-400">2026年7月1日（週三）</div>
+          </div>
+        </div>
+        <div class="space-y-3 pl-4 border-l-2 border-[#b7e4c7] ml-4">
+          <div class="flex gap-4 items-start">
+            <span class="text-xs font-mono text-[#2d6a4f] w-20 shrink-0 pt-0.5">08:00</span>
+            <span class="text-sm text-gray-700">報到、接送至活動地點</span>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="text-xs font-mono text-[#2d6a4f] w-20 shrink-0 pt-0.5">08:30</span>
+            <span class="text-sm text-gray-700">相見歡 ／ 營隊規範說明</span>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="text-xs font-mono text-[#2d6a4f] w-20 shrink-0 pt-0.5">09:30</span>
+            <span class="text-sm text-gray-700">🧗 東華大學高空繩索場 ── 低空體驗 ＋ 確保訓練（台灣東部唯一）</span>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="text-xs font-mono text-[#2d6a4f] w-20 shrink-0 pt-0.5">12:00</span>
+            <span class="text-sm text-gray-700">🍱 午餐時間</span>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="text-xs font-mono text-[#2d6a4f] w-20 shrink-0 pt-0.5">13:00</span>
+            <span class="text-sm text-gray-700">🧗 高空繩索挑戰 ── 雙索・高空獨木橋・三索・老鷹之柱（非強迫，尊重每位孩子步調）</span>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="text-xs font-mono text-[#2d6a4f] w-20 shrink-0 pt-0.5">17:30</span>
+            <span class="text-sm text-gray-700">🛒 晚餐 ／ 小組討論隔日食材 ／ 自主採購 ／ 盥洗 ／ 反思分享</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="mb-10">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-full bg-[#2d6a4f] text-white flex items-center justify-center font-bold text-sm">D2</div>
+          <div>
+            <div class="font-bold text-[#1a4731]">第二天 · 溯溪探索日</div>
+            <div class="text-xs text-gray-400">2026年7月2日（週四）</div>
+          </div>
+        </div>
+        <div class="space-y-3 pl-4 border-l-2 border-[#b7e4c7] ml-4">
+          <div class="flex gap-4 items-start">
+            <span class="text-xs font-mono text-[#2d6a4f] w-20 shrink-0 pt-0.5">06:00</span>
+            <span class="text-sm text-gray-700">🍳 起床盥洗 ／ 自己動手煮早餐（用前晚採購的食材）</span>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="text-xs font-mono text-[#2d6a4f] w-20 shrink-0 pt-0.5">08:30</span>
+            <span class="text-sm text-gray-700">🌊 戶外溯溪體驗（全日）── 清昌溪水晶谷、裝備講解、水文生態、自救課程、溪中自己煮午餐 🍳</span>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="text-xs font-mono text-[#2d6a4f] w-20 shrink-0 pt-0.5">18:30</span>
+            <span class="text-sm text-gray-700">🦗 夜間生態探索 ── 晚餐、夜間抓蝦、盥洗、反思分享</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 3 -->
+      <div>
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-full bg-[#52b788] text-white flex items-center justify-center font-bold text-sm">D3</div>
+          <div>
+            <div class="font-bold text-[#1a4731]">第三天 · 山林巡禮日</div>
+            <div class="text-xs text-gray-400">2026年7月3日（週五）</div>
+          </div>
+        </div>
+        <div class="space-y-3 pl-4 border-l-2 border-[#b7e4c7] ml-4">
+          <div class="flex gap-4 items-start">
+            <span class="text-xs font-mono text-[#2d6a4f] w-20 shrink-0 pt-0.5">06:00</span>
+            <span class="text-sm text-gray-700">起床盥洗 ／ 用餐 ／ 行李整理</span>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="text-xs font-mono text-[#2d6a4f] w-20 shrink-0 pt-0.5">08:30</span>
+            <span class="text-sm text-gray-700">🏞️ 鯉魚潭風景區 ── 鯉魚山步道巡禮（花蓮八景 ＋ 台灣小百岳）／ 鳥類生態觀察 ／ 無痕山林（LNT）</span>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="text-xs font-mono text-[#2d6a4f] w-20 shrink-0 pt-0.5">12:00</span>
+            <span class="text-sm text-gray-700">🍱 午餐時間</span>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="text-xs font-mono text-[#2d6a4f] w-20 shrink-0 pt-0.5">13:00</span>
+            <span class="text-sm text-gray-700">🪵 阿迪克木藝教室 ── 紀念品製作、心得分享、結營賦歸 🎉</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SAFETY ── -->
+  <section class="py-16 px-4 bg-[#1a4731]">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/75 rounded-full px-4 py-1.5 text-sm mb-6">
+        🛡️ 安全保障
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-10">孩子的安全，是我們最重要的承諾</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white/10 rounded-2xl p-4 text-white">
+          <div class="text-2xl mb-2">👨‍🏫</div>
+          <div class="font-bold text-sm mb-1">1:4 師生比</div>
+          <div class="text-white/60 text-xs">全程陪伴照顧</div>
+        </div>
+        <div class="bg-white/10 rounded-2xl p-4 text-white">
+          <div class="text-2xl mb-2">🪖</div>
+          <div class="font-bold text-sm mb-1">專業安全裝備</div>
+          <div class="text-white/60 text-xs">頭盔、安全帶、救生衣</div>
+        </div>
+        <div class="bg-white/10 rounded-2xl p-4 text-white">
+          <div class="text-2xl mb-2">🩺</div>
+          <div class="font-bold text-sm mb-1">急救認證</div>
+          <div class="text-white/60 text-xs">帶領者持急救證照</div>
+        </div>
+        <div class="bg-white/10 rounded-2xl p-4 text-white">
+          <div class="text-2xl mb-2">📋</div>
+          <div class="font-bold text-sm mb-1">活動意外險</div>
+          <div class="text-white/60 text-xs">全員投保保障</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── REGISTER ── -->
+  <section id="register" class="py-20 px-4 bg-white">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="section-label mx-auto">✏️ 報名資訊</div>
+      <h2 class="text-3xl md:text-4xl font-bold text-[#1a4731] mb-4">立即報名</h2>
+      <p class="text-gray-500 mb-8 leading-relaxed">
+        本次營隊名額有限（約8位），由花蓮善牧中心統一安排報名。<br>
+        如有任何問題，請聯繫 <strong style="color:#1a4731;">力勇冒險團隊 林國偉</strong> 📞 0910-825-534。
+      </p>
+      <div class="bg-[#f8fdf9] border border-[#b7e4c7] rounded-2xl p-6 text-left mb-8">
+        <div class="grid grid-cols-2 gap-6 text-base">
+          <div><span class="text-gray-400">活動日期</span><br><strong>2026年7月1日–3日</strong></div>
+          <div><span class="text-gray-400">適合年齡</span><br><strong>7–12 歲</strong></div>
+          <div><span class="text-gray-400">活動地點</span><br><strong>花蓮縣境內</strong></div>
+          <div><span class="text-gray-400">服務對象</span><br><strong>善牧兒童之家兒少</strong></div>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <button class="cta-btn" style="background:#2d6a4f;" onclick="alert(`請聯繫力勇冒險團隊 林國偉 0910-825-534 報名，謝謝！`)">
+          📝 我要報名
+        </button>
+        <button class="cta-btn cta-btn-outline" onclick="window.print()">
+          🖨️ 列印此頁
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="bg-[#0d2818] text-white/50 py-8 px-4 text-center text-sm">
+    <div class="mb-2 text-white/70 font-medium">山林溯源體驗營 ── 花蓮善牧中心兒少服務</div>
+    <div class="mb-1">主辦：力勇冒險團隊 ｜ 聯絡人：林國偉 0910-825-534 ｜ 666liyo@gmail.com</div>
+    <div class="mb-4">服務對象：天主教善牧基金會花蓮兒童之家兒少 ｜ 2026年7月1日–3日</div>
+
+  </footer>
+
+<script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+
+</body></html>

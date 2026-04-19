@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-kuse-mode="document">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>山林溯源體驗營 ── 報名表 ＆ 家長同意書</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: #f5f5f0;
+      color: #202020;
+    }
+    @media print {
+      body { background: white; font-size: 10px; }
+      .no-print { display: none !important; }
+      .page { box-shadow: none !important; margin: 0 !important; border-radius: 0 !important; page-break-after: always; }
+      .page:last-child { page-break-after: avoid; }
+      @page { margin: 10mm 10mm; }
+      .doc-body { padding: 1rem 1.5rem; }
+      .doc-header { padding: 1rem 1.5rem; }
+      .doc-header h1 { font-size: 1.2rem; }
+      .form-section { margin-bottom: 1rem; }
+      .form-section-title { margin-bottom: 0.5rem; }
+      .form-row { gap: 0.4rem; margin-bottom: 0.4rem; }
+      .consent-text { padding: 0.6rem 0.8rem; margin-bottom: 0.8rem; line-height: 1.6; }
+      .notice-box { padding: 0.5rem 0.8rem; margin-bottom: 0.8rem; line-height: 1.6; }
+      .sign-row { margin-top: 0.8rem; gap: 1rem; }
+      .sign-area { height: 40px; }
+      .divider { margin: 0.8rem 0; }
+    }
+    .page {
+      background: white;
+      max-width: 800px;
+      margin: 2rem auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .doc-header {
+      background: linear-gradient(135deg, #1a4731, #2d6a4f);
+      padding: 2rem 2.5rem 1.5rem;
+      color: white;
+    }
+    .doc-header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .doc-header p { font-size: 0.85rem; opacity: 0.8; }
+    .doc-body { padding: 2rem 2.5rem; }
+    .form-section {
+      margin-bottom: 1.8rem;
+    }
+    .form-section-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1a4731;
+      border-left: 4px solid #2d6a4f;
+      padding-left: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .form-row {
+      display: grid;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .form-row-2 { grid-template-columns: 1fr 1fr; }
+    .form-row-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .form-field label {
+      display: block;
+      font-size: 0.78rem;
+      color: #555;
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+    }
+    .form-field label .required { color: #e53e3e; }
+    .form-line {
+      border: none;
+      border-bottom: 1.5px solid #ccc;
+      width: 100%;
+      padding: 0.4rem 0.2rem;
+      font-size: 0.88rem;
+      font-family: 'Noto Sans TC', sans-serif;
+      background: transparent;
+      outline: none;
+    }
+    .form-line:focus { border-bottom-color: #2d6a4f; }
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.5rem;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+    }
+    .checkbox-item input[type="checkbox"] {
+      width: 16px; height: 16px;
+      accent-color: #2d6a4f;
+    }
+    .notice-box {
+      background: #fff8e1;
+      border: 1px solid #f9a825;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: #5d4037;
+      margin-bottom: 1.5rem;
+    }
+    .notice-box strong { color: #e65100; }
+    .consent-text {
+      background: #f8fdf9;
+      border: 1px solid #b7e4c7;
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      font-size: 0.82rem;
+      line-height: 1.9;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+    .consent-text p { margin-bottom: 0.5rem; }
+    .sign-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .sign-box {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .sign-box .sign-label { font-size: 0.78rem; color: #666; margin-bottom: 0.5rem; }
+    .sign-area {
+      height: 60px;
+      border-bottom: 1.5px solid #aaa;
+      margin-bottom: 0.5rem;
+    }
+    .sign-box .sign-date { font-size: 0.75rem; color: #888; }
+    .divider { height: 1px; background: #e8e8e8; margin: 1.5rem 0; }
+    .info-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .info-table td {
+      padding: 0.5rem 0.8rem;
+      border: 1px solid #ddd;
+      vertical-align: top;
+    }
+    .info-table td:first-child {
+      background: #f8fdf9;
+      font-weight: 600;
+      color: #1a4731;
+      width: 30%;
+      white-space: nowrap;
+    }
+    .doc-footer {
+      background: #1a4731;
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      padding: 0.8rem;
+      font-size: 0.75rem;
+    }
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Print Button -->
+<div class="no-print" style="text-align:center;padding:1.5rem 0 0;">
+  <button onclick="window.print()"
+    style="background:#2d6a4f;color:white;border:none;border-radius:8px;padding:0.6rem 1.6rem;font-size:0.95rem;cursor:pointer;font-family:inherit;">
+    🖨️ 列印 / 匯出 PDF
+  </button>
+  <p style="font-size:0.78rem;color:#888;margin-top:0.5rem;">列印時建議選擇「A4 直向」，可直接匯出為 PDF</p>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE 1：報名表
+══════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div style="font-size:0.78rem;opacity:0.7;margin-bottom:0.3rem;">🌿 2026 山林溯源體驗營</div>
+    <h1>學員報名表</h1>
+    <p>請以正楷填寫，並於報名截止日前繳回主辦單位</p>
+  </div>
+  <div class="doc-body">
+
+    <!-- 活動資訊 -->
+    <table class="info-table" style="margin-bottom:1.5rem;">
+      <tr>
+        <td>活動名稱</td>
+        <td>山林溯源體驗營</td>
+      </tr>
+      <tr>
+        <td>活動日期</td>
+        <td>2026年7月1日（三）至 7月3日（五）</td>
+      </tr>
+      <tr>
+        <td>活動地點</td>
+        <td>花蓮縣境內（國立東華大學、溯溪地點、鯉魚潭、阿迪克木藝工作室）</td>
+      </tr>
+      <tr>
+        <td>主辦單位</td>
+        <td>力勇冒險團隊</td>
+      </tr>
+      <tr>
+        <td>聯絡人</td>
+        <td>林國偉　📞 0910-825-534　✉ 666liyo@gmail.com</td>
+      </tr>
+      <tr>
+        <td>住宿地點</td>
+        <td>繆斯‧法朵民宿（花蓮市林政街88巷31號）</td>
+      </tr>
+      <tr>
+        <td>合作單位</td>
+        <td>天主教善牧基金會花蓮兒童之家</td>
+      </tr>
+      <tr>
+        <td>報名截止</td>
+        <td>＿＿＿＿ 年 ＿＿ 月 ＿＿ 日</td>
+      </tr>
+    </table>
+
+    <!-- 學員基本資料 -->
+    <div class="form-section">
+      <div class="form-section-title">一、學員基本資料</div>
+      <div class="form-row form-row-3">
+        <div class="form-field">
+          <label>學員姓名 <span class="required">*</span></label>
+          <input class="form-line" type="text" placeholder="請填寫正式姓名">
+        </div>
+        <div class="form-field">
+          <label>性別 <span class="required">*</span></label>
+          <div style="display:flex;gap:1.5rem;padding-top:0.5rem;">
+            <label class="checkbox-item"><input type="checkbox"> 男</label>
+            <label class="checkbox-item"><input type="checkbox"> 女</label>
+            <label class="checkbox-item"><input type="checkbox"> 其他</label>
+          </div>
+        </div>
+        <div class="form-field">
+          <label>出生年月日 <span class="required">*</span></label>
+          <input class="form-line" type="text" placeholder="YYYY/MM/DD">
+        </div>
+      </div>
+      <div class="form-row form-row-2">
+        <div class="form-field">
+          <label>就讀學校 ／ 年級</label>
+          <input class="form-line" type="text" placeholder="例：花蓮國小三年級">
+        </div>
+        <div class="form-field">
+          <label>身分證字號</label>
+          <input class="form-line" type="text" placeholder="供保險用途">
+        </div>
+      </div>
+    </div>
+
+    <!-- 緊急聯絡人 -->
+    <div class="form-section">
+      <div class="form-section-title">二、家長 ／ 監護人資料</div>
+      <div class="form-row form-row-3">
+        <div class="form-field">
+          <label>姓名 <span class="required">*</span></label>
+          <input class="form-line" type="text">
+        </div>
+        <div class="form-field">
+          <label>與學員關係 <span class="required">*</span></label>
+          <input class="form-line" type="text" placeholder="例：父母、祖父母">
+        </div>
+        <div class="form-field">
+          <label>聯絡電話 <span class="required">*</span></label>
+          <input class="form-line" type="text" placeholder="手機號碼">
+        </div>
+      </div>
+      <div class="form-row form-row-2">
+        <div class="form-field">
+          <label>備用聯絡電話</label>
+          <input class="form-line" type="text">
+        </div>
+        <div class="form-field">
+          <label>通訊地址</label>
+          <input class="form-line" type="text">
+        </div>
+      </div>
+    </div>
+
+    <!-- 健康狀況 -->
+    <div class="form-section">
+      <div class="form-section-title">三、健康狀況說明</div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>過敏史（食物 ／ 藥物 ／ 環境）</label>
+          <input class="form-line" type="text" placeholder="如無請填「無」">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>慢性疾病 ／ 特殊健康狀況</label>
+          <input class="form-line" type="text" placeholder="如無請填「無」">
+        </div>
+      </div>
+      <div class="form-row form-row-2">
+        <div class="form-field">
+          <label>目前是否有服用藥物？</label>
+          <div style="display:flex;gap:1.5rem;padding-top:0.5rem;">
+            <label class="checkbox-item"><input type="checkbox"> 無</label>
+            <label class="checkbox-item"><input type="checkbox"> 有，藥物名稱：＿＿＿＿＿＿</label>
+          </div>
+        </div>
+        <div class="form-field">
+          <label>是否懼高？</label>
+          <div style="display:flex;gap:1.5rem;padding-top:0.5rem;">
+            <label class="checkbox-item"><input type="checkbox"> 否</label>
+            <label class="checkbox-item"><input type="checkbox"> 是（輕度）</label>
+            <label class="checkbox-item"><input type="checkbox"> 是（明顯）</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>其他需要告知帶領者的事項</label>
+          <input class="form-line" type="text" placeholder="如飲食禁忌、情緒特質、特殊需求等">
+        </div>
+      </div>
+    </div>
+
+    <!-- 衣物尺寸 -->
+    <div class="form-section">
+      <div class="form-section-title">四、裝備參考尺寸</div>
+      <div class="form-row form-row-3">
+        <div class="form-field">
+          <label>身高（cm）</label>
+          <input class="form-line" type="text">
+        </div>
+        <div class="form-field">
+          <label>體重（kg）</label>
+          <input class="form-line" type="text">
+        </div>
+        <div class="form-field">
+          <label>鞋子尺寸</label>
+          <input class="form-line" type="text" placeholder="供溯溪鞋租借參考">
+        </div>
+      </div>
+    </div>
+
+    <!-- 備註 -->
+    <div class="form-section">
+      <div class="form-section-title">五、其他備註</div>
+      <div class="form-field">
+        <label>其他說明或希望帶領者知道的事</label>
+        <input class="form-line" type="text" style="padding-bottom:1.5rem;">
+      </div>
+    </div>
+
+  </div>
+  <div class="doc-footer">
+    山林溯源體驗營 ── 學員報名表 ｜ 第 1 頁，共 2 頁
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE 2：家長同意書
+══════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header" style="background:linear-gradient(135deg,#1a3a4f,#2d5a6a);">
+    <div style="font-size:0.78rem;opacity:0.7;margin-bottom:0.3rem;">🌿 2026 山林溯源體驗營</div>
+    <h1>家長 ／ 監護人同意書</h1>
+    <p>請詳細閱讀以下內容，確認同意後簽名，連同報名表一併繳回</p>
+  </div>
+  <div class="doc-body">
+
+    <div class="notice-box">
+      ⚠️ <strong>請家長 ／ 監護人務必詳細閱讀本同意書</strong>，了解活動內容、安全規範及相關注意事項後，再行簽署。如有任何疑問，請於簽署前聯繫主辦單位。
+    </div>
+
+    <!-- 活動說明 -->
+    <div class="form-section">
+      <div class="form-section-title">一、活動說明</div>
+      <div class="consent-text">
+        <p>本次「山林溯源體驗營」為三天二夜戶外體驗活動，活動內容包含：</p>
+        <p>
+          ① <strong>PA 繩索課程</strong>（低空 ＋ 高空繩索體驗）<br>
+          ② <strong>戶外溯溪</strong>（含裝備教學、水文生態認識、水域自救課程）<br>
+          ③ <strong>夜間生態探索</strong>（夜間生物觀察、抓蝦體驗）<br>
+          ④ <strong>鯉魚山步道巡禮</strong>（環境教育、無痕山林）<br>
+          ⑤ <strong>木藝創作</strong>（阿迪克木藝教室，製作紀念品）<br>
+          ⑥ <strong>生活自理</strong>（早餐製作、食材採購、野炊體驗）
+        </p>
+        <p>活動期間，孩子將在具備相關資格與經驗之帶領者陪同下進行所有課程，師生比例至少維持 1:4。</p>
+      </div>
+    </div>
+
+    <!-- 安全說明 -->
+    <div class="form-section">
+      <div class="form-section-title">二、安全規範說明</div>
+      <div class="consent-text">
+        <p>主辦單位已採取以下安全措施：</p>
+        <p>
+          ✅ 繩索課程由具認證資格之帶領者執行，全程配戴安全頭盔與安全吊帶<br>
+          ✅ 溯溪活動全程穿著救生衣，並視天候與水位彈性調整行程<br>
+          ✅ 帶領人員持有急救（CPR）認證，全程備有急救包<br>
+          ✅ 活動前進行安全說明，孩子須遵守帶領者指示<br>
+          ✅ 全員投保活動意外險<br>
+          ✅ 遇極端天候或安全疑慮，主辦單位有權調整或取消相關活動
+        </p>
+        <p>儘管已採取充分安全措施，戶外活動仍存在一定風險。家長 ／ 監護人簽署本同意書，表示已了解並接受相關風險。</p>
+      </div>
+    </div>
+
+    <!-- 個資聲明 -->
+    <div class="form-section">
+      <div class="form-section-title">三、個人資料使用聲明</div>
+      <div class="consent-text">
+        <p>報名表所填寫之個人資料，僅供本次活動行政管理、保險申辦及緊急聯絡使用，不作其他商業用途。活動結束後，相關資料將依規定妥善保存或銷毀。</p>
+      </div>
+    </div>
+
+    <!-- 同意項目 -->
+    <div class="form-section">
+      <div class="form-section-title">四、家長 ／ 監護人確認項目</div>
+      <div style="font-size:0.85rem;line-height:2.2;">
+        <label class="checkbox-item" style="display:flex;gap:0.6rem;margin-bottom:0.3rem;">
+          <input type="checkbox" style="margin-top:0.3rem;width:16px;height:16px;accent-color:#2d6a4f;flex-shrink:0;">
+          <span>我已詳細閱讀本同意書，了解活動內容及相關風險。</span>
+        </label>
+        <label class="checkbox-item" style="display:flex;gap:0.6rem;margin-bottom:0.3rem;">
+          <input type="checkbox" style="margin-top:0.3rem;width:16px;height:16px;accent-color:#2d6a4f;flex-shrink:0;">
+          <span>我同意孩子參加本次「山林溯源體驗營」三天二夜活動。</span>
+        </label>
+        <label class="checkbox-item" style="display:flex;gap:0.6rem;margin-bottom:0.3rem;">
+          <input type="checkbox" style="margin-top:0.3rem;width:16px;height:16px;accent-color:#2d6a4f;flex-shrink:0;">
+          <span>我同意孩子參與 PA 繩索課程（低空 ＋ 高空體驗）。</span>
+        </label>
+        <label class="checkbox-item" style="display:flex;gap:0.6rem;margin-bottom:0.3rem;">
+          <input type="checkbox" style="margin-top:0.3rem;width:16px;height:16px;accent-color:#2d6a4f;flex-shrink:0;">
+          <span>我同意孩子參與溯溪及水域活動，並了解帶領者將視現場狀況彈性調整。</span>
+        </label>
+        <label class="checkbox-item" style="display:flex;gap:0.6rem;margin-bottom:0.3rem;">
+          <input type="checkbox" style="margin-top:0.3rem;width:16px;height:16px;accent-color:#2d6a4f;flex-shrink:0;">
+          <span>我已如實填寫孩子的健康狀況，如有任何隱瞞導致意外，責任自負。</span>
+        </label>
+        <label class="checkbox-item" style="display:flex;gap:0.6rem;margin-bottom:0.3rem;">
+          <input type="checkbox" style="margin-top:0.3rem;width:16px;height:16px;accent-color:#2d6a4f;flex-shrink:0;">
+          <span>我同意主辦單位於活動中為孩子拍攝照片 ／ 影片，用於活動紀錄及非商業性宣傳用途。</span>
+        </label>
+        <label class="checkbox-item" style="display:flex;gap:0.6rem;">
+          <input type="checkbox" style="margin-top:0.3rem;width:16px;height:16px;accent-color:#2d6a4f;flex-shrink:0;">
+          <span>如遇緊急醫療狀況，我授權帶領者在無法即時聯絡到我的情況下，代為決定必要之急救措施。</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- 簽名區 -->
+    <div class="divider"></div>
+    <div class="sign-row">
+      <div class="sign-box">
+        <div class="sign-label">家長 ／ 監護人簽名</div>
+        <div class="sign-area"></div>
+        <div class="sign-date">簽署日期：＿＿＿＿ 年 ＿＿ 月 ＿＿ 日</div>
+      </div>
+      <div class="sign-box">
+        <div class="sign-label">學員（本人）簽名</div>
+        <div class="sign-area"></div>
+        <div class="sign-date">（7歲以上學員請自行簽名）</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 主辦單位收件欄 -->
+    <div style="background:#f8f8f8;border:1px dashed #ccc;border-radius:8px;padding:1rem 1.2rem;font-size:0.8rem;color:#666;">
+      <strong style="color:#1a4731;">【主辦單位收件欄，家長勿填寫】</strong><br>
+      收件日期：＿＿＿＿ 年 ＿＿ 月 ＿＿ 日 ｜ 收件人員：＿＿＿＿＿＿ ｜ 備注：＿＿＿＿＿＿＿＿＿＿
+    </div>
+
+  </div>
+  <div class="doc-footer">
+    山林溯源體驗營 ── 家長同意書 ｜ 第 2 頁，共 2 頁 ｜ 請連同報名表一併繳回
+  </div>
+</div>
+
+<script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+</body>
+</html>
